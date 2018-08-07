@@ -1,0 +1,42 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item>
+    <ion-label floating>Shopping List</ion-label>
+    <ion-input type="text" [(ngModel)]="name"></ion-input>
+  </ion-item>
+ 
+  <div class="ggg">
+    <button ion-button full (click)="writecuisine ()">Add List</button>
+  </div>
+
+    <ion-list>
+      <ion-item-sliding *ngFor = "let item of items">
+        <ion-item>
+          {{ item?.name }}
+        </ion-item>
+        <ion-item-options side="right">
+          <button ion-button color="primary" (click) = "delete(item?.key)">
+            <ion-icon name="trash"></ion-icon>
+            delete
+          </button>
+
+          <button ion-button color="dark" (click) = "update(item?.key)">
+            <ion-icon name="crush"></ion-icon>
+           update
+          </button>
+        </ion-item-options>
+        
+      </ion-item-sliding>
+      
+    </ion-list>
+ 
+</ion-content>
+
